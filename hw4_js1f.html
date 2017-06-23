@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HW4_JS</title>
+</head>
+<body>
+<script defer>
+
+    function calc(a, b, operator) {
+        var result;
+        switch (operator) {
+            case '+':
+                result = a + b;
+                break;
+            case '-':
+                result = a - b;
+                break;
+            case '*':
+                result = a * b;
+                break;
+            case '/':
+                result = a / b;
+                break;
+            default:
+                result = 'Неизвестная операция';
+        }
+        return result;
+    }
+
+    alert( calc(+prompt('Введите первое число'), +prompt('Введите второе число'), prompt('Введите оператор') ) );
+
+</script>
+</body>
+</html>
