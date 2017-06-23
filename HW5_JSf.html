@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HW5_JSf</title>
+</head>
+<body>
+<!--
+isBigger - a function which accepts two arguments and returns true if first one has greater value than second one or false otherwise.
+E.g: isBigger(5, -1); // => true
+Tip: no need for if/else clause nor ternary operator
+
+isSmaller - a function which accepts two arguments and returns true if first one has lesser value than second one or false otherwise.
+E.g. isSmaller(5, -1); // => false
+Tip: consider reusing isBigger function
+
+getMin - a function which accepts arbitrary number of integer arguments and returns the one with the smallest value.
+E.g. getMin(3, 0, -3); // => -3
+Tip: since arguments is like array, you can use simple iteration over it
+and use arguments[ i ] to get the argument of a given index
+ 
+pow(x, n) - Write the function pow (x, n), which returns x to the power of n.
+ 
+getClosestToZero - a function which accepts arbitrary number of integer arguments and returns one closest to 0 (zero).
+E.g. getClosestToZero(9, 5, -4, -9); // => -4
+Tip: Math.abs() might be helpful
+
+BONUS, means this task is not obligatory.
+guessingGame - rewrite guess a number game using functions.
+The main idea is to refactor your previous code so it become reusable and more readable. And task 1,2.
+-->
+<script defer>
+
+    // Без проверок
+
+    var a = +prompt('Введите число A (для задач 1, 2, 4)');
+    var b = +prompt('Введите число B (для задач 1, 2, 4)');
+    var range = prompt('Введите несколько чисел через пробел (для задач 3 и 5)');
+
+    //Task 1 ========================================
+    function isBigger(a, b) {
+        return (a > b);
+    }
+    console.log( 'Task 1: ' + a + ' > ' + b + ' = ' + isBigger(a, b) );
+
+    // Task 2 ========================================
+    function isSmaller(a, b) {
+        return (a < b);
+    }
+    console.log( 'Task 2: ' + a + ' < ' + b + ' = ' + isSmaller(a, b) );
+
+    //Task 3 ========================================
+    function getMin(numbers) {
+        var arr = numbers.split(' ');
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] = +arr[i];
+        }
+        return Math.min.apply(null, arr);
+    }
+    console.log( 'Task 3: Минимальное значение: ' + getMin(range) );
+
+    //Task 4 ========================================
+    function pow(x, n) {
+        var result = x;
+        for (var i = 1; i < n; i++) {
+            result = result * x;
+        }
+        return result;
+    }
+    console.log( 'Task 4: A в степени B = ' + pow(a, b) );
+
+    //Task 5 ========================================
+    function getClosestToZero(numbers) {
+        var arr1 = numbers.split(' ');
+        var arr2 = [];
+        for (var i = 0; i < arr1.length; i++) {
+            arr1[i] = +arr1[i];
+            arr2[i] = Math.abs(+arr1[i]);
+        }
+        return arr1[ arr2.indexOf( Math.min.apply(null, arr2) ) ];
+    }
+    console.log( 'Task 5: Ближайшее к 0 значение: ' + getClosestToZero(range) );
+
+</script>
+
+</body>
+</html>
